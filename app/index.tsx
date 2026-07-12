@@ -1,18 +1,26 @@
+import { router } from 'expo-router';
 import {
   Alert,
   Pressable,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
  
 export default function WelcomeScreen() {
-  const showComingNext = (feature: string) => {
+  const handleFindPrivateSpace = () => {
     Alert.alert(
-      feature,
-      'This button is working. We will connect it to the next screen during the next development step.'
+      'Find a Private Space',
+      'Property search will be connected in the next development phase.'
+    );
+  };
+ 
+  const handleBecomeHost = () => {
+    Alert.alert(
+      'Become a Host',
+      'Host registration will be connected in the host onboarding phase.'
     );
   };
  
@@ -45,35 +53,41 @@ export default function WelcomeScreen() {
         <View style={styles.actionArea}>
           <Pressable
             accessibilityRole="button"
-            onPress={() => showComingNext('Find a Private Space')}
+            onPress={handleFindPrivateSpace}
             style={({ pressed }) => [
               styles.primaryButton,
               pressed && styles.buttonPressed,
             ]}
           >
-            <Text style={styles.primaryButtonText}>Find a Private Space</Text>
+            <Text style={styles.primaryButtonText}>
+              Find a Private Space
+            </Text>
           </Pressable>
  
           <Pressable
             accessibilityRole="button"
-            onPress={() => showComingNext('Create Account')}
+            onPress={() => router.push('/sign-up')}
             style={({ pressed }) => [
               styles.secondaryButton,
               pressed && styles.buttonPressed,
             ]}
           >
-            <Text style={styles.secondaryButtonText}>Create Account</Text>
+            <Text style={styles.secondaryButtonText}>
+              Create Account
+            </Text>
           </Pressable>
  
           <Pressable
             accessibilityRole="button"
-            onPress={() => showComingNext('Sign In')}
+            onPress={() => router.push('/sign-in')}
             style={({ pressed }) => [
               styles.textButton,
               pressed && styles.buttonPressed,
             ]}
           >
-            <Text style={styles.textButtonText}>Already have an account? Sign In</Text>
+            <Text style={styles.textButtonText}>
+              Already have an account? Sign In
+            </Text>
           </Pressable>
         </View>
  
@@ -84,7 +98,9 @@ export default function WelcomeScreen() {
         </View>
  
         <View style={styles.hostCard}>
-          <Text style={styles.hostTitle}>Share your land. Help dogs.</Text>
+          <Text style={styles.hostTitle}>
+            Share your land. Help dogs.
+          </Text>
  
           <Text style={styles.hostDescription}>
             Set your own availability, create your property rules, and earn
@@ -93,13 +109,15 @@ export default function WelcomeScreen() {
  
           <Pressable
             accessibilityRole="button"
-            onPress={() => showComingNext('Become a Host')}
+            onPress={handleBecomeHost}
             style={({ pressed }) => [
               styles.hostButton,
               pressed && styles.buttonPressed,
             ]}
           >
-            <Text style={styles.hostButtonText}>Become a Host</Text>
+            <Text style={styles.hostButtonText}>
+              Become a Host
+            </Text>
           </Pressable>
         </View>
  
@@ -130,7 +148,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     paddingHorizontal: 24,
-    paddingTop: 38,
+    paddingTop: 24,
     paddingBottom: 30,
   },
  
