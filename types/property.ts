@@ -1,0 +1,20 @@
+export type Property = {
+  id: string;
+  host_id: string | null;
+  name: string;
+  short_description: string;
+  city: string;
+  state: string;
+  postal_code: string;
+  price_per_hour: number;
+  acreage: number | null;
+  is_fully_fenced: boolean;
+  fence_height_feet: number | null;
+  instant_book: boolean;
+  average_rating: number;
+  review_count: number;
+  hero_image_url: string | null;
+  is_published: boolean;
+  created_at: string;
+  updated_at: string;
+};

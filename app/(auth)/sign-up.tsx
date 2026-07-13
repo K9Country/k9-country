@@ -81,7 +81,7 @@ export default function SignUpScreen() {
           [
             {
               text: 'Continue',
-              onPress: () => router.replace('/'),
+              onPress: () => router.replace('/dashboard'),
             },
           ]
         );

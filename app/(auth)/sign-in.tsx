@@ -42,7 +42,7 @@ export default function SignInScreen() {
       }
  
       Alert.alert('Welcome back', 'You successfully signed in.');
-      router.replace('/');
+      router.replace('/dashboard');
     } catch {
       Alert.alert(
         'Something went wrong',
